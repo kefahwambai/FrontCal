@@ -94,11 +94,12 @@ input {
 	position: relative;
 	overflow: hidden;
 	width: 768px;
-    margin-top: 5%;
+    margin-top: 7.25%;
 	max-width: 100%;
-	min-height: 1150px;
+	min-height: 825px;
     background: rgb(255, 255, 255);
     position: relative;
+    margin-bottom: 10%;
 
    
 

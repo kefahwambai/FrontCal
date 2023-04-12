@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./Login.css"
+import 'font-awesome/css/font-awesome.min.css';
+
 
 function Login({ setUser }) {
   const navigate = useNavigate();
@@ -11,9 +13,6 @@ function Login({ setUser }) {
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
-  const [age, setAge] = useState("");
-  const [height, SetHeight] = useState("");
-  const [weight, setWeight] = useState("");
   const [signupError, setSignupError] = useState("");
   const [loginError, setLoginError] = useState(false);
 
@@ -112,7 +111,7 @@ function Login({ setUser }) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ username, firstname, lastname, email, password, passwordConfirmation, age, height, weight }),
+      body: JSON.stringify({ username, firstname, lastname, email, password, passwordConfirmation }),
     }).then((r) => {
       if (r.ok) {
         r.json().then((user) => {
@@ -178,11 +177,18 @@ function Login({ setUser }) {
                       </ul>
                     </div>
                   </div>
-          </nav>         
+          </nav>
+         
      
           <div class="container" id="container">
             <div class="form-container sign-up-container">
             <form onSubmit={handleSubmit}>
+            <h1>Create Account</h1>
+            <div class="social-container">
+              <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+              <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+            </div>         
             <label htmlFor="username">Username</label>
             <input
               type="text"
@@ -212,29 +218,7 @@ function Login({ setUser }) {
               autoComplete="off"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-            />
-            <label htmlFor="age">Age</label>
-            <input
-              type="number"
-              id="age"
-              value={age}
-              onChange={(e) => setAge(e.target.value)}            
-            />
-            <label htmlFor="weight">Current Weight (kg's)</label>
-            <input
-              type="number"
-              id="weight"
-              value={weight}
-              onChange={(e) => setWeight(e.target.value)}            
-            />
-            <label htmlFor="height">Current Height (cm's)</label>
-            <input
-              type="number"
-              id="height"
-              value={height}
-              onChange={(e) => SetHeight(e.target.value)}            
-            />
-
+            />           
             <label htmlFor="password">Password</label>
             <input
               type="password"

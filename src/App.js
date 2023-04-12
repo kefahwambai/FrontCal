@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Home from "./Components/Home";
 import Login from "./Components/Login"
 import Foods from "./Components/Foods"
+import Footer from './Components/Footer';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -27,8 +28,9 @@ function App() {
    <Route path="/foods" element={<Foods />} />
 
    </Routes>
-  
+   {/* <Footer/> */}
    </>
+  
   );
 }
 
